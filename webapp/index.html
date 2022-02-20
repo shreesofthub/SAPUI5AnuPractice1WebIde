@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Practice upto 21</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Practice UI5 Application upto 21">
+		<meta name="keywords" content="">
+		<meta name="author" content="sridhar bollabathula">
+		<script id="sap-ui-bootstrap"
+				src="https://sapui5.hana.ondemand.com/1.90.0/resources/sap-ui-core.js"
+				data-sap-ui-resourceroots='{"hckt.practice21":"./"}'
+				data-sap-ui-libs="sap.m"
+				data-sap-ui-theme="sap_bluecrystal"
+				data-sap-ui-xx-bindingSyntax="complex">
+		</script>
+		<style>
+			.idSF{
+				border: 2px solid red;
+			}
+			.sfip{
+				border: 1px solid yellow;
+			}
+			.table{
+				border:2px solid green;
+			}
+		</style>
+		<script>
+			var oApp = new sap.m.App("idApp");
+			var oView = new sap.ui.view("idView",{
+				viewName:"hckt.practice21.view.main",
+				type: sap.ui.core.mvc.ViewType.XML
+			});
+			oApp.addPage(oView);
+			oApp.placeAt("placeHolder");
+		</script>
+	</head>
+	<body class="sapUiBody">
+		<div id="placeHolder"></div>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<core:view xmlns:core="sap.ui.core" xmlns="sap.m" controllerName="hckt.practice21.controller.main" xmlns:form="sap.ui.layout.form"
+	xmlns:table="sap.ui.table">
+	<Page>
+		<form:SimpleForm class="idSF" id="idSF">
+			<form:content>
+				<Label text="Employee"></Label>
+				<Input value="{/empStr/empId}" class="sfip" enabled="{/empStr/enable}"></Input>
+				<Label text="Employee First Name"></Label>
+				<Input value="{/empStr/firstName}" class="sfip" enabled="{/empStr/enable}"></Input>
+				<Label text="Employee Last Name"></Label>
+				<Input id="idempLastName" class="sfip" enabled="{= ${/empStr/salary} >= 100000 ? false : true }"></Input>
+				<Label text="Employee Salary"></Label>
+				<Input id="idEmpSal" class="sfip" enabled="{/empStr/enable}"></Input>
+			</form:content>
+		</form:SimpleForm>
+		<Button text="Get Full Data" press="onGetFullData"></Button>
+		<Button text="Data Flipping" press="onFlipData" id="idFlip"></Button>
+		<Button text="Clear Input" press="onClear"></Button>
+		<Button text="Disable" press="onDisable"></Button>
+		<table:Table alternateRowColors="true" visibleRowCount="5" rows="{/empTab}" class="table" selectionMode="Single"
+			rowSelectionChange="onRowSelect">
+			<table:Column>
+				<Label text="Employee Id"></Label>
+				<table:template>
+					<Text text="{empId}"></Text>
+				</table:template>
+			</table:Column>
+			<table:Column>
+				<Label text="First Name"></Label>
+				<table:template>
+					<Input value="{firstName}"></Input>
+				</table:template>
+			</table:Column>
+			<table:Column>
+				<Label text="Last Name"></Label>
+				<table:template>
+					<Text text="{lastName}"></Text>
+				</table:template>
+			</table:Column>
+			<table:Column>
+				<Label text="Salary"></Label>
+				<table:template>
+					<Text text="{salary}{curr}"></Text>
+				</table:template>
+			</table:Column>
+			<table:Column>
+				<Label text="Gender"></Label>
+				<table:template>
+					<Image src="{gender}" width="35px" height="35px"></Image>
+				</table:template>
+			</table:Column>
+			<table:Column>
+				<Label text="Marital Status"></Label>
+				<table:template>
+					<Select selectedKey="{mStatus}">
+						<core:Item key="M" text="Married"></core:Item>
+						<core:Item key="S" text="Single"></core:Item>
+					</Select>
+				</table:template>
+			</table:Column>
+			<table:Column>
+				<Label text="Smoke"></Label>
+				<table:template>
+					<CheckBox displayOnly="true" selected="{= ${firstName} === 'Roja' ? false : {smoke} }"></CheckBox>
+				</table:template>
+			</table:Column>
+		</table:Table>
+		<Button text="Insert-Push" press="onPush"></Button>
+		<Button text="Delete-Pop" press="onPop"></Button>
+	</Page>
+</core:view>
